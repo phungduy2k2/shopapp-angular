@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { HomeComponent } from './components/home/home.component';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
@@ -11,7 +10,8 @@ import { RegisterComponent } from './components/register/register.component';
 import { DetailProductComponent } from './components/detail-product/detail-product.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-// import {TokenIn}
+import { TokenInterceptor } from './interceptors/token.interceptor';
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
     declarations: [    
@@ -26,7 +26,9 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
     ],
     imports: [
       BrowserModule,
-      FormsModule
+      FormsModule,
+      HttpClientModule,
+      AppRoutingModule
     ],
     providers: [
       {
@@ -36,7 +38,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
       },
     ],
     bootstrap: [
-      // HomeComponent,
+      HomeComponent,
       // HeaderComponent,
       // FooterComponent,
       //DetailProductComponent,
@@ -44,7 +46,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
       // OrderConfirmComponent,
       // LoginComponent,
       // RegisterComponent,
-      DetailProductComponent
+      // DetailProductComponent
     ]
   })
   export class AppModule { }
