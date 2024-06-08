@@ -5,6 +5,7 @@ import { ProductService } from '../../services/product.service';
 import { CategoryService } from '../../services/category.service';
 import { environment } from '../../environments/environment';
 import { Router } from '@angular/router';
+import { TokenService } from '../../services/token.service';
 
 @Component({
   selector: 'app-home',
@@ -25,6 +26,7 @@ export class HomeComponent implements OnInit{
   constructor(
     private productService: ProductService,
     private categoryService: CategoryService,
+    private tokenService: TokenService,
     private router: Router
   ) {}
 
@@ -71,6 +73,7 @@ export class HomeComponent implements OnInit{
         debugger
       },
       error: (error: any) => {
+        debugger;
         console.error('Error fetching products: ', error);
       }
     });

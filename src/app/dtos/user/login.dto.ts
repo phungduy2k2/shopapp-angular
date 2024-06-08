@@ -13,6 +13,7 @@ export class LoginDTO {
     password: string;
 
     role_id: number;
+    
     constructor(data: any) {
         this.phone_number = data.phone_number;
         this.password = data.password;

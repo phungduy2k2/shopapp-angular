@@ -21,6 +21,7 @@ export class RegisterComponent {
   dateOfBirth: Date;
 
   constructor(private router: Router, private userService: UserService) {
+    debugger;
     this.phoneNumber = '';
     this.password = '';
     this.retypePassword = '';
@@ -31,10 +32,12 @@ export class RegisterComponent {
     this.dateOfBirth.setFullYear(this.dateOfBirth.getFullYear() - 18);
     //inject
   }
+
   onPhoneNumberChange() {
     console.log(`Phone typed: ${this.phoneNumber}`);
     // how to validate
   }
+  
   register() {
     const message = `phone: ${this.phoneNumber}`+
                     `password: ${this.password}`+
@@ -69,6 +72,7 @@ export class RegisterComponent {
       }
     })   
   }
+
   //how to check password match ?
   checkPasswordsMatch() {    
     if (this.password !== this.retypePassword) {
@@ -78,6 +82,7 @@ export class RegisterComponent {
       this.registerForm.form.controls['retypePassword'].setErrors(null);
     }
   }
+
   checkAge() {
     if (this.dateOfBirth) {
       const today = new Date();

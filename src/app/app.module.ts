@@ -4,31 +4,37 @@ import { HomeComponent } from './components/home/home.component';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { OrderComponent } from './components/order/order.component';
-import { OrderConfirmComponent } from './components/order-confirm/order-confirm.component';
+import { OrderDetailComponent } from './components/detail-order/detail-order.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { DetailProductComponent } from './components/detail-product/detail-product.component';
 import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { TokenInterceptor } from './interceptors/token.interceptor';
 import { AppRoutingModule } from './app-routing.module';
+import { AppComponent } from './app/app.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
     declarations: [    
       HomeComponent,
       HeaderComponent,
       FooterComponent,
+      DetailProductComponent,
       OrderComponent,
-      OrderConfirmComponent,
+      OrderDetailComponent,
       LoginComponent,
       RegisterComponent,
-      DetailProductComponent
+      AppComponent
     ],
     imports: [
+      ReactiveFormsModule,
       BrowserModule,
       FormsModule,
       HttpClientModule,
-      AppRoutingModule
+      AppRoutingModule,
+      NgbModule
     ],
     providers: [
       {
@@ -38,10 +44,11 @@ import { AppRoutingModule } from './app-routing.module';
       },
     ],
     bootstrap: [
-      HomeComponent,
+      AppComponent,
+      // HomeComponent,
       // HeaderComponent,
       // FooterComponent,
-      //DetailProductComponent,
+      // DetailProductComponent,
       // OrderComponent,
       // OrderConfirmComponent,
       // LoginComponent,
